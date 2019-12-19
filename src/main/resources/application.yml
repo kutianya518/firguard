@@ -1,0 +1,25 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /firguard
+  tomcat:
+    uri-encoding: UTF-8
+#\u8282\u70B9\u670D\u52A1ip
+node:
+  host: 192.168.1.155
+  cron: 0 0 2 * * ?
+spring:
+  # \u5E94\u7528\u7A0B\u5E8F\u540D\u79F0
+  application:
+    name: firguard
+  profiles:
+    active: druid
+  devtools:
+    restart:
+      enabled: true
+
+mybatis:
+  typeAliasesPackage: com.unis.fire.pojo
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  #configLocation: classpath:mapper/mybatis-config.xml
+

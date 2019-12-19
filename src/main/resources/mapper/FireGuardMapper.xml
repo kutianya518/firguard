@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unis.fire.mapper.FireGuardMapper">
+
+    <insert id="insertIntoCloud" >
+        insert into cloud values
+        <foreach collection="list" item="cloud" separator=",">
+            (#{cloud.nodeId},#{cloud.pipeId},#{cloud.saveTime},
+            #{cloud.Cloud},#{cloud.Op},#{cloud.Co},#{cloud.Te},
+            #{cloud.OTh},#{cloud.CTh},#{cloud.TTh},#{cloud.Af},
+            #{cloud.Cl},#{cloud.Hy},#{cloud.Cmin},#{cloud.Cmax},
+            #{cloud.Cbg},#{cloud.Flev},#{cloud.FIRE},#{cloud.lineData})
+        </foreach>
+
+    </insert>
+
+    <insert id="insertIntoFthr" >
+        insert into fire_threshold values
+        <foreach collection="list" item="fire" separator=",">
+            (#{fire.nodeId},#{fire.pipeId},#{fire.saveTime},
+            #{fire.FThr},#{fire.Flag},#{fire.Obs},#{fire.AfAcc},
+            #{fire.GAdj},#{fire.RCount},#{fire.ITime},#{fire.Raf},
+            #{fire.Chg},#{fire.CErr},#{fire.lineData})
+        </foreach>
+    </insert>
+
+</mapper>
